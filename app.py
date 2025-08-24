@@ -1,9 +1,12 @@
 import google.generativeai as genai
 import os 
 import streamlit as st 
+from dotenv import load_dotenv
 
-os.environ["GOOGLe_API_KEY"]="AIzaSyCX4gQ8qjCLShyfeRVJfn_Y6vJBZ93VHUo"
-genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
+load_dotenv()
+
+api_key=os.getenv("GOOGLe_API_KEY")
+genai.configure(api_key=api_key)
 model=genai.GenerativeModel("gemini-2.0-flash")
 
 st.title("AI Search")
